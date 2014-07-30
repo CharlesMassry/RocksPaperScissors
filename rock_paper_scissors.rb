@@ -3,14 +3,21 @@ class RockPaperScissors
     @score = []
   end
 
+  def play
+    loop do
+      run
+    end
+  end
+
+  private
+
   def run
     @this_type = classified_type
     @this_hand = hand
     puts ai
+    score_response
     puts stringify_percent
   end
-
-  private
 
   def score_response
     @score << Score.new(@this_hand, ai).result

@@ -16,6 +16,7 @@ class Prompt
     loop do
       type_input
       return @type if GAMES.any? { |choice| choice == @type }
+      exit if @type == "q"
     end
   end
 
@@ -28,7 +29,7 @@ class Prompt
   end
 
   def type_input
-    print "Do you want to play winning, losing, or random?"
+    print "Do you want to play winning, losing, or random? (q to quit) > "
     @type = gets.chomp
   end
 

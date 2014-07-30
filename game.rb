@@ -5,4 +5,4 @@ require_relative "winning"
 require_relative "score"
 require_relative "rock_paper_scissors"
 
-RockPaperScissors.new.run
+RockPaperScissors.new.play
