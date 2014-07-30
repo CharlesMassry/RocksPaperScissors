@@ -1,8 +1,9 @@
 class Losing
   LOSING_MOVE = {
-    "R" => "S",
-    "P" => "R",
-    "S" => "P" }
+    "R" => "P",
+    "P" => "S",
+    "S" => "R"
+  }
 
   def initialize(move)
     @move = move

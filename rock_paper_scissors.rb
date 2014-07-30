@@ -1,4 +1,10 @@
 class RockPaperScissors
+  BEATS = {
+    "R" => "S",
+    "P" => "R",
+    "S" => "P"
+  }
+
   def initialize
     @score = []
   end
@@ -13,38 +19,38 @@ class RockPaperScissors
 
   def run
     @this_type = classified_type
-    @this_hand = hand
+    hand
     puts ai
     score_response
-    puts stringify_percent
+    stringify_percent
   end
 
   def score_response
-    @score << Score.new(@this_hand, ai).result
+    @score << Score.new(@this_hand, @response).result
   end
 
   def stringify_percent
-    "%#{score_percentage}"
+    puts "%#{score_percentage}"
   end
 
   def score_percentage
-    score_counter / (@score.count + 1)
+    ((score_counter.to_f / (@score.count).to_f) * 100).to_i
   end
 
   def score_counter
-    @score.select { |num| num == 1 }.count
+    @score.select { |win| win == 1 }.count
   end
 
   def ai
     @response = eval(@this_type).new(@this_hand).play
   end
 
-  def hand
-    Prompt.new.hand
-  end
-
   def classified_type
     type.capitalize
+  end
+
+  def hand
+    @this_hand = Prompt.new.hand
   end
 
   def type

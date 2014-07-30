@@ -1,9 +1,4 @@
 class Score
-  BEATS = {
-    "R" => "P",
-    "P" => "S",
-    "S" => "R" }
-
   def initialize(human, ai)
     @human = human
     @ai = ai
@@ -14,14 +9,14 @@ class Score
   end
 
   def evaluate_human_win
-    if BEATS[@human] == @ai
-      puts "You win"
+    if RockPaperScissors::BEATS[@human] == @ai
+      puts "You Win"
       return 1
     end
   end
 
   def evaluate_ai_win
-    if BEATS[@ai] == @human
+    if RockPaperScissors::BEATS[@ai] == @human
       puts "You Lose"
       return -1
     end
@@ -29,7 +24,8 @@ class Score
 
   def evaluate_draw
     if @ai == @human
-      0
+      puts "Draw"
+      return 0
     end
   end
 end
