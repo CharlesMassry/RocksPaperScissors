@@ -10,6 +10,7 @@ class RockPaperScissors
   end
 
   def play
+    @this_type = classified_type
     loop do
       run
     end
@@ -18,7 +19,6 @@ class RockPaperScissors
   private
 
   def run
-    @this_type = classified_type
     hand
     puts ai
     score_response
